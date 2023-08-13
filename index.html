@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Webpage with JS</title>
+    <style>
+        #interactive-button:hover {
+            transform: translateY(-2px);
+        }
+
+        canvas {
+            border: 5px solid coral;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#">Link</a>
+    <p id="pid1"></p>
+    <p id="pid2"></p>
+    <p id="pid3"></p>
+
+    <button id="interactive-button" style="border:none; background-color: rgb(127, 236, 127);">submit</button>
+
+    <h1>JavaScript Events</h1>
+
+    <script language="JavaScipt" type="text/JavaScript">
+
+        var username = "Alice";
+        var greeting ="Good Morning!"
+        var userGreeting = "Good Morning, Alice"
+
+        document.getElementById("pid1").textContent="Hello " + username + "!";
+        document.getElementById("pid2").textContent= greeting;
+        display("pid3", userGreeting);
+
+        function display(id, text) {
+            document.getElementById(id).textContent = text;   
+        }
+
+        function clickevent(){
+            document.write("My first JavaScript event.");
+        }
+
+        window.onload = function(){
+  alert("hi")
+			var ctx =     document.getElementById('Mycanvas');
+			var context = ctx.getContext('2d');
+			ctx.addEventListener('mousedown', onDown, false);
+			ctx.addEventListener('mouseup', Up, false);
+		}
+		function onDown(event){
+			cx = event.pageX;
+			cy = event.pageY;
+			alert("X,Y="+cx+','+cy);
+		}
+
+
+    </script>
+
+    
+
+        <form>
+            <input type="text" id="input" onkeydown="clickevent()">
+            <input type="button" onclick="clickevent()" value="click me">
+            <input type="button" onmouseover="clickevent()" value="hover over me">
+        </form>
+        <br/><br/>
+
+        <canvas id="Mycanvas" height='350' width='350'></canvas>
+
+        <!--
+        other js events = onload, onchange, onmouseout
+    -->
+
+</body>
+
+</html>
